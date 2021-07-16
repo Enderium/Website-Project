@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="de-de">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Universaltoaster">
+    <meta name="description" content="Offizielle Webseite von Universaltoaster">
+    <meta http-equiv="refresh" content="60">
+    <meta name="robots" content="index, follow">
+    <meta name="revisit-after" content="5 month">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <title>UniT | Startseite</title>
+
+    <script type="text/javascript">
+        var reader = new XMLHttpRequest() || new ActiveXObject('MSXML2.XMLHTTP');
+        
+        function loadFile() {
+            reader.open('get', 'stockdata.csv', true); 
+            reader.onreadystatechange = displayContents;
+            reader.send(null);
+        }
+        
+        function displayContents() {
+            if(reader.readyState==4) {
+                var el = document.getElementById('main');
+                el.innerHTML = reader.responseText;
+            }
+        }
+        
+        </script>
+</head>
+
+<body>
+    <header id="site-header">
+        <div id="logo-area">
+            <table>
+                <tr>
+                    <td><img src='toaster.png' alt='Toaster-Bild' width="90"></td>
+                    <td><h1 draggable="true"> &nbsp; &nbsp; Universaltoaster</h1></td>
+                </tr>
+            </table>
+        </div>
+        <nav id="menu-area">
+            <a class="menu-item" href='http://kettenbach.eu' title='http://kettenbach.eu' target='_blank'>Webserver</a>
+            <a class="menu-item" href='http://kettenbach.eu/owncloud' title='http://kettenbach.eu/owncloud' target='_blank'>Owncloud</a>
+            <a class="menu-item" href='http://kettenbach.eu/abc.php' title='http://kettenbach.eu/abc.php' target='_blank'>PHPInfo</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <br/>
+        <table>
+            <tr>
+                <td>
+                    <div id="site-box">
+                        <input type="button" value="Show Stockprices"  onclick="loadFile()" />
+                        <div id="main"></div>
+                    </div>
+                </td>
+
+                <td>
+                    <div id="site-box">
+                        <button type="submit" id="namebutton" onmousedown="onButtonClick()">Namen erweitern</button>          	
+                        <button onclick= "window.location.href ='https://www.duckduckgo.com';" title='DuckDuckgo.com'>DuckDuckgo</button>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <hr />
+    <div class="container">
+        <ul>
+            <li>Katze</li>
+            <li>Hund</li>
+            <li>Mäuse</li>
+        </ul>
+        <form >
+            <input type='radio' name='Tier' value='Katze' title='Katze'> Katze <br/>
+            <input type='radio' name='Tier' value='Hund' title='Hund'> Hund <br/>
+            <input type='checkbox' name='test' value='true'> <br/>
+            <input type='date'>
+            <input type='email'name='mail' placeholder='email eintragen'>
+            <input type='submit' value='Klick mich'>
+        </form>
+    </div>
+    
+    <script src="index.js"></script>
+</body>
+</html>
